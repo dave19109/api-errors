@@ -1,0 +1,25 @@
+name: setup-environment
+description: Composite action to setup environment and install dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.12.0
+
+    - name: 📦 Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 10 # or the version you use
+
+    - name: ♻️ Setup pnpm cache
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.12.0
+        cache: pnpm
+
+    - name: 📥 Install dependencies with pnpm
+      shell: bash
+      run: pnpm install --frozen-lockfile
