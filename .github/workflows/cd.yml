@@ -46,7 +46,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: borjapazr/express-typescript-skeleton
+          images: dave19109/api-errors
 
       - name: 💽 Build and push Docker image
         uses: docker/build-push-action@v5
